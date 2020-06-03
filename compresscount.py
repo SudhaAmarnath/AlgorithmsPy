@@ -13,5 +13,5 @@ def compress(a):
         s+='('+str(count)+', '+a[i]+')'+' '
     return s
 print(compress('xxxyyyyzzzaaaa'))
-print(compress('122333444'))
+print(compress('1223334444'))
 

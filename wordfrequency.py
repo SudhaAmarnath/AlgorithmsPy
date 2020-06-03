@@ -1,3 +1,19 @@
+#using Counter
+#'''
+
+from collections import Counter
+
+def frequency(w):
+    s = w.split()
+    length = Counter(s)
+    return length
+print(frequency("i had a good good day"))
+
+#or
+'''
+
+
+'''
 def frequency(w):
     s = w.split()
     d = {}
@@ -7,3 +23,17 @@ def frequency(w):
         d[i]+=1
     return d
 print(frequency('i had a good good day'))
+'''
+#or using count()
+
+'''
+def frequency(w):
+    w = w.split()
+    dic = {}
+    for i in w:
+        dic[i] = w.count(i)
+    return dic
+print(frequency('i had a good good day'))
+
+'''
+
