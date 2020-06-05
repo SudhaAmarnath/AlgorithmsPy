@@ -6,7 +6,7 @@ def containsduplicate(s):
     slength = Counter(s)
     for k,v in slength.items():
         if v > 1:
-            print("{} is repeated {} times".format(k,v))
+            print("{} is repeated {} times".format(k,v)
         else:
             print("{} none".format(k))
 containsduplicate("seven is not great")
@@ -24,3 +24,8 @@ def removeduplicate(s):
 
 removeduplicate([10, 20, 20, 40, 40])
 '''
+#or
+s = set()
+for _ in range(int(input())):
+    s.add(input())
+print(len(s))
