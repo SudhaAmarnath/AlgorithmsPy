@@ -1,3 +1,4 @@
+#'''
 def compress(a):
     s=''
     for i in range(0,len(a)):
@@ -14,4 +15,17 @@ def compress(a):
     return s
 print(compress('xxxyyyyzzzaaaa'))
 print(compress('1223334444'))
+#'''
+
+#or
+'''
+from itertools import groupby
+
+def compresscount(s):
+    l = [list(g) for k, g in groupby(s)]
+
+    for i in l:
+        print (len(i), int(i[0]))
+compresscount('11112334455')
+'''
 
