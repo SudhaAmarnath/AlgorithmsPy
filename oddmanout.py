@@ -5,9 +5,19 @@ Hence,  is the Captain's room number.
 1 2 3 6 5 4 4 2 5 3 6 1 6 5 3 2 4 1 2 5 1 4 3 6 8 4 3 1 5 6 2
 8
 '''
+
 n = int(input())
 s = str(input()).split(" ")
 group = set(s)
 for r in set(s):
         s.remove(r)
 print ("".join((group - set(s))))
+
+#or printing min counter value
+
+from collections import Counter
+n = input()
+b = input().split()
+k = Counter(b)
+d = dict(k)
+print(min(d, key=lambda k: d[k]))
