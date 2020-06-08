@@ -6,7 +6,7 @@ def containsduplicate(s):
     slength = Counter(s)
     for k,v in slength.items():
         if v > 1:
-            print("{} is repeated {} times".format(k,v)
+            print("{} is repeated {} times".format(k,v))
         else:
             print("{} none".format(k))
 containsduplicate("seven is not great")
