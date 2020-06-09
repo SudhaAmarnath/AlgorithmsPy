@@ -19,3 +19,27 @@ def rotate_matrix(x):
     return x
 y = [[1,2,3],[4,5,6],[7,8,9]]
 print(rotate_matrix(y))
+
+'''
+A = [[0,0],[1,1],[2,2]]
+>>> zip(*A)
+[(0, 1, 2), (0, 1, 2)]
+
+#or 
+
+import numpy as np
+
+arr = np.arange(9).reshape((3, 3))
+print("Original array : \n", arr)
+print("\nFlipped array up-down : \n", np.flipud(arr))
+
+Original array : 
+ [[0 1 2]
+ [3 4 5]
+ [6 7 8]]
+
+Flipped array up-down : 
+ [[6 7 8]
+ [3 4 5]
+ [0 1 2]]
+'''
