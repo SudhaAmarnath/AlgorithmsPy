@@ -1,3 +1,6 @@
+'''
+Find the smallest element in the array. This smallest element is swapped with the first element. After this, search for the smallest element in the subarray formed by excluding the first element and compare it with the first element of the subarray. Repeat it till the array gets sorted.
+'''
 def selectionsort(s):
     length = len(s)-1
     x = set() #to return non-duplicate elements
