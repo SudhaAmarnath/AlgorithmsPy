@@ -36,4 +36,13 @@ def frequency(w):
 print(frequency('i had a good good day'))
 
 '''
+#number and letter count by groupby()
 
+from itertools import groupby
+def count(s):
+    s = sorted(s)
+    l = [list(g) for k, g in groupby(s)]
+    for k in l:
+        print(len(k), k[0])
+count('123434325345')
+count('abababdcdbcss')
