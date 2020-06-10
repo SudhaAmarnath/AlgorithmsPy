@@ -42,4 +42,8 @@ Flipped array up-down :
  [[6 7 8]
  [3 4 5]
  [0 1 2]]
+ 
+import numpy as np
+a = np.array([[1, 2], [3, 4]])
+print np.flipud(a)
 '''
