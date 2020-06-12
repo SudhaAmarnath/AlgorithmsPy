@@ -46,3 +46,8 @@ def count(s):
         print(len(k), k[0])
 count('123434325345')
 count('abababdcdbcss')
+
+#or 
+s = "1243454564646"
+for i,j in enumerate(s):
+    print(i, j)
