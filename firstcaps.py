@@ -33,3 +33,19 @@ if __name__ == '__main__':
     result = solve(s)
     fptr.write(result + '\n')
     fptr.close()
+
+#to capitalize the nth element in the string
+def caps(s, n):
+    return s[:n].lower() + s[n:].capitalize()
+print(caps('programming',5))
+
+#to capitalize every other nth element in the given string
+def caps(s, n):
+    n1 = ''
+    for i,j in enumerate(s):
+        if i % n == 0:
+            n1 += j.upper()
+        else:
+            n1 += j
+    return n1
+print(caps('stringwithcaps',2))
