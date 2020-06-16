@@ -21,3 +21,7 @@ a 2
 s = '12343545456'
 #s = [1,2,3,4,4,5,5,5,5,6,1,3]
 print([i for i in set(s) if s.count(i)>1]) #['4', '3', '5']
+
+#or
+arr = [1,2,3,4,4,5,5,5,5,6,1,3]
+print(all(int(i)>=1 for i in arr))
