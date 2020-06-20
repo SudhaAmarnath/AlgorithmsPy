@@ -104,3 +104,47 @@ for i in range(thickness+1):
 #Bottom Cone
 for i in range(thickness):
     print(((c*(thickness-i-1)).rjust(thickness)+c+(c*(thickness-i-1)).ljust(thickness)).rjust(thickness*6))
+
+'''
+#size 3
+
+----c----
+--c-b-c--
+c-b-a-b-c
+--c-b-c--
+----c----
+
+#size 5
+
+--------e--------
+------e-d-e------
+----e-d-c-d-e----
+--e-d-c-b-c-d-e--
+e-d-c-b-a-b-c-d-e
+--e-d-c-b-c-d-e--
+----e-d-c-d-e----
+------e-d-e------
+--------e--------
+'''
+import string
+def print_rangoli(n):
+
+    alpha = string.ascii_lowercase
+
+    arr = []
+
+    for i in range(n):
+        s = "-".join(alpha[i:n])
+        arr.append(s[::-1]+s[1:])
+
+    width = len(arr[0])
+
+    for i in range(n-1, 0, -1):
+        print(arr[i].center(width, "-"))
+
+    for i in range(n):
+        print(arr[i].center(width, "-"))
+
+if __name__ == '__main__':
+    n = int(input())
+    print_rangoli(n)
