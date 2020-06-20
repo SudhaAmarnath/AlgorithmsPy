@@ -62,3 +62,9 @@ def vowelcount(s):
            print(k,v)
 vowelcount('sudha') #1 u
                      4 a
+
+#using regexp
+import re
+def vowelcount(s):
+    return re.findall(r'[aeiou]',s)
+print(vowelcount('sudha'))
