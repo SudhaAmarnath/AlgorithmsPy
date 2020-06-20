@@ -78,3 +78,30 @@ n, m, p = map(int,input().split())
 arrn = numpy.array([input().split() for _ in range(n)],int)
 arrm = numpy.array([input().split() for _ in range(m)],int)
 print(numpy.concatenate((arrn, arrm), axis = 0))
+
+
+'''
+import numpy
+
+a = numpy.array([1,2,3,4,5])
+print a[1]          #2
+
+b = numpy.array([1,2,3,4,5],float)
+print b[1]          #2.0
+
+
+Sample Input
+
+1 2 3 4 -8 -10
+Sample Output
+
+[-10.  -8.   4.   3.   2.   1.]
+'''
+import numpy
+
+def arrays(arr):
+    return numpy.array(arr[::-1],float)
+
+arr = input().strip().split(' ')
+result = arrays(arr)
+print(result)
