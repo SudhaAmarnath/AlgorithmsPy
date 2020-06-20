@@ -39,3 +39,42 @@ import numpy
 N, M = map(int, input().split())
 A = numpy.array([input().split() for _ in range(N)],int)
 print(numpy.prod(numpy.sum(A, axis=0), axis=0))
+
+'''
+
+import numpy
+
+array_1 = numpy.array([[1,2,3],[0,0,0]])
+array_2 = numpy.array([[0,0,0],[7,8,9]])
+
+print numpy.concatenate((array_1, array_2), axis = 1)   
+
+#Output
+[[1 2 3 0 0 0]
+ [0 0 0 7 8 9]]
+ 
+Sample Input
+
+4 3 2
+1 2
+1 2 
+1 2
+1 2
+3 4
+3 4
+3 4 
+Sample Output
+
+[[1 2]
+ [1 2]
+ [1 2]
+ [1 2]
+ [3 4]
+ [3 4]
+ [3 4]] 
+'''
+import numpy
+n, m, p = map(int,input().split())
+arrn = numpy.array([input().split() for _ in range(n)],int)
+arrm = numpy.array([input().split() for _ in range(m)],int)
+print(numpy.concatenate((arrn, arrm), axis = 0))
