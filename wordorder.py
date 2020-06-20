@@ -21,3 +21,24 @@ from collections import Counter
 words=Counter([input() for _ in range(int(input()))])
 print(len(words))
 print(*words.values())
+
+
+#or
+
+from collections import Counter
+def counti(s):
+    words=Counter(i for i in s)
+    print(len(words))
+    for k,v in words.items():
+        print("{} is repeated {} times".format(k,v))
+    print(*words.values(),'------>',*words.elements())
+counti(['bcdef','abcdefg','bcde','bcdef'])
+
+'''
+output
+3
+bcdef is repeated 2 times
+abcdefg is repeated 1 times
+bcde is repeated 1 times
+2 1 1 ------> bcdef bcdef abcdefg bcde
+'''
