@@ -4,7 +4,8 @@ def twosum(arr,target):
     dict = {}
     for i in range(len(arr)):
         if arr[i] in dict:
-            return [dict[arr[i]],i]
+            return [dict[arr[i]],i]#to return index of two numbers
+            #return arr[i],i #to return two numbers
         else:
             dict[target-arr[i]] = i
 print(twosum([13,4,5,24,7],2))
