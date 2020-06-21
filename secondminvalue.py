@@ -31,3 +31,22 @@ if __name__ == '__main__':
     for l in range(arr.count(max)):
         arr.remove(max)
     print(arr[-1])
+
+'''
+
+#second largest number using heapq
+from heapq import nlargest
+
+def second_smallest(numbers):
+    numbers = set(numbers)
+    return nlargest(2, numbers)[-1]
+print(second_smallest([1,2,3,14,5,13,1]))
+
+#second smallest number using heapq
+from heapq import nsmallest
+
+def second_smallest(numbers):
+    numbers = set(numbers)
+    return nsmallest(2, numbers)[-1]
+print(second_smallest([1,2,3,14,5,1]))d
+'''

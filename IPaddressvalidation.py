@@ -9,7 +9,7 @@ Sample Output
 
 Neither
 IPv4
-IPv6  
+IPv6
 '''
 
 import re
