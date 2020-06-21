@@ -47,7 +47,24 @@ def count(s):
 count('123434325345')
 count('abababdcdbcss')
 
+#or using Counter
+
+from collections import Counter
+
+def frequency(w):
+    s = w.split()
+    d = Counter(s)
+    for k,v in d.items():
+        print(k,v)
+frequency('i had a good good day')
+
 #or 
-s = "1243454564646"
-for i,j in enumerate(s):
-    print(i, j)
+def counter(s):
+
+    from collections import Counter
+    s = list(s)
+    c=Counter(s)
+
+    print(*c.values(),'\n',*c.elements())
+counter('aabbcccccdddd')
+counter('123231112334')
