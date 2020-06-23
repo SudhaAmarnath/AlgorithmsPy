@@ -10,3 +10,10 @@ class reversalstring:
             right-=1
         return k
 print(''.join(reversalstring().reverse(a)))
+
+
+#or
+
+s = 'string'
+s = list(s)
+print(''.join(s[::-1]))
