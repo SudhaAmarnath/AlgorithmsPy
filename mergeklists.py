@@ -1,3 +1,23 @@
+'''
+import heapq
+def merge(lists):
+    final_list = []
+    heap = [(mylst[0], i, 0) for i, mylst in enumerate(lists) if mylst]
+    heapq.heapify(heap)
+
+    while heap:
+        val, list_ind, element_ind = heapq.heappop(heap)
+        final_list.append(val)
+        if element_ind + 1 < len(lists[list_ind]):
+            next_tuple = (lists[list_ind][element_ind + 1],
+                          list_ind,
+                          element_ind + 1)
+            heapq.heappush(heap, next_tuple)
+    return final_list
+print(merge(([10,40,70],[20,50,80],[30,60,90],[11,100],[-1,1])))
+'''
+
+
 from typing import List
 
 class ListNode(object):
