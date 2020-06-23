@@ -1,4 +1,3 @@
-'''
 import heapq
 def merge(lists):
     final_list = []
@@ -8,15 +7,18 @@ def merge(lists):
     while heap:
         val, list_ind, element_ind = heapq.heappop(heap)
         final_list.append(val)
-        if element_ind + 1 < len(lists[list_ind]):
+        #if element_ind + 1 < len(lists[list_ind]):
+        try:
             next_tuple = (lists[list_ind][element_ind + 1],
                           list_ind,
                           element_ind + 1)
             heapq.heappush(heap, next_tuple)
+        except IndexError as e:
+            pass
     return final_list
 print(merge(([10,40,70],[20,50,80],[30,60,90],[11,100],[-1,1])))
-'''
 
+#merge k sorted linked list
 
 from typing import List
 
