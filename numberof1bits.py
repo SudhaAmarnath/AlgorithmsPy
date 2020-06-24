@@ -9,7 +9,8 @@ class bitwise:
                 mask <<= 1 # left shift operand
         return count
 
-
-
+#or using bin()
+def bit(self, n: int) -> int:
+    bin(n)(count='1')
 
 
