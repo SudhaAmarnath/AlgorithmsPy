@@ -24,4 +24,30 @@ for i in range(1,20):
     print(fibonacci(i))
 
 
+'''
+Sample Input
+
+5
+Sample Output
+
+[0, 1, 1, 8, 27]
+Explanation
+
+The first  fibonacci numbers are [0,1,1,2,3], and their cubes are [0, 1, 1, 8, 27].
+'''
+cube = lambda x: pow(x, 3)  # x**3
+
+
+def fibonacci(n):
+    lst = [0, 1]
+    for i in range(2, n):
+        lst.append(lst[i - 2] + lst[i - 1])
+    return (lst[0:n])
+    # return lst
+
+
+if __name__ == '__main__':
+    n = int(input())
+    print(list(map(cube, fibonacci(n))))
+
 
