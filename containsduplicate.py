@@ -30,3 +30,8 @@ for _ in range(int(input())):
     s.add(input())
 print(len(s))
 
+#or
+#s = 'baababbabacdcdef'
+s = [1,2,3,4,1,2,3,5]
+k = [i for i in set(s) if s.count(i)>=1]
+print(k) #[1, 2, 3, 4, 5]
