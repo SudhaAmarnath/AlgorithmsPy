@@ -40,3 +40,32 @@ def is_anagram1(s1,s2):
             return False
         return True
 print(is_anagram1("tictac","tactic"))
+
+#group anagrams
+'''
+Given an array of strings, group anagrams together.
+
+Example:
+
+Input: ["eat", "tea", "tan", "ate", "nat", "bat"],
+Output:
+[
+  ["ate","eat","tea"],
+  ["nat","tan"],
+  ["bat"]
+]
+Note:
+
+All inputs will be in lowercase.
+The order of your output does not matter.
+'''
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        d = {}
+        for i in range(len(strs)):
+            x = ''.join(sorted(strs[i]))
+            if x not in d:
+                d[x] = [strs[i]] #[aet]=[eat]
+            else:
+                d[x].append(strs[i])
+        return d.values()
