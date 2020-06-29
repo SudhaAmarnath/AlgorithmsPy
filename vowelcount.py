@@ -68,3 +68,17 @@ import re
 def vowelcount(s):
     return re.findall(r'[aeiou]',s)
 print(vowelcount('sudha'))
+
+#or using Counter
+from collections import Counter
+s = 'finding all the vowels count in this string'
+l = 'aeiou'
+c = Counter(s)
+for k,v in c.items():
+    if k in l:
+        print(k,v)
+#i 5
+ a 1
+ e 2
+ o 2
+ u 1
