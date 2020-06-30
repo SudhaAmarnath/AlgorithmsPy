@@ -12,3 +12,30 @@ def primenums(l,u):
 
 print(primenums(1,10))
 print(primenums(20,100))
+
+#Sieve Eratosthenes' algorithm
+class Solution:
+    def countPrimes(self, n: int) -> int:
+
+        if n <= 2:
+            return 0
+
+        l = [True for i in range(n)]
+
+        prime = []
+        p = 2
+        while (p * p <= n):
+            if (l[p] == True):
+                # Update all multiples of p
+                for i in range(p * 2, n, p):
+                    l[i] = False
+
+            p += 1
+
+        l[0], l[1] = False, False
+
+        for j in range(len(l)):
+            if l[j] == True:
+                prime.append(j)
+
+        return len(prime)
