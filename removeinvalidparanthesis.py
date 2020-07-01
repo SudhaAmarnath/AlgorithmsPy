@@ -77,3 +77,51 @@ Example 5:
 Input: "{[]}"
 Output: true
 '''
+class Solution:
+    def isValid(self, s: str) -> bool:
+        openMap=['(','{','[']
+        closeMap=[')','}',']']
+        #openMap={'(':'1','{:'2','[':'3'}
+        #closeMap={')':'1','}':'2',']':'3'}
+        openCount=0
+        closeCount=0
+        stack=[]
+        for i in s:
+            if i in openMap:
+                stack.append(i)
+                openCount+=1
+            else:
+                try:
+                    c=stack.pop()
+                except:
+                    return False
+                closeCount+=1
+                if closeMap.index(i)!=openMap.index(c):
+                #if closeMap[i]!=openMap[c]:
+                    return False
+        if closeCount==openCount:
+            return True
+        else:
+            return False
+
+#or
+class Solution:
+    def isValid(self, s: str) -> bool:
+
+        # edge case
+        if len(s) % 2 != 0:
+            return False
+
+        open = set('({[')
+        closed = set([('(', ')'), ('[', ']'), ('{', '}')])
+        x = []
+        for i in s:
+            if i in open:
+                x.append(i)
+            else:
+                if (len(x) == 0):
+                    return False
+                last_open = x.pop()
+                if (last_open, i) not in closed:
+                    return False
+        return len(x) == 0
