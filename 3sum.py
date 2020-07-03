@@ -39,3 +39,14 @@ class Solution:
                     l += 1
 
         return list(result)
+
+#using itertools combinations()
+
+import itertools
+list=[-1,0,1,2,-1,-4]
+#s = set(list)
+#for i in itertools.combinations(s,3):
+for i in itertools.combinations(list, 3):
+
+    if i[0]+i[1]+i[2] == 0:
+        print(i)
