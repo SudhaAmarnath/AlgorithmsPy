@@ -117,3 +117,22 @@ class Solution:
           l += 1
           r -= 1
     return 1
+
+
+#or
+  class Solution:
+    def removePalindromeSub(self, s: str) -> int:
+      ans = 0
+      if not s:
+        return ans
+      l, r = 0, len(s) - 1
+      while l <= r:
+        if s[l] == s[r]:
+          l += 1
+          r -= 1
+        else:
+          break
+      if l > r:
+        return 1
+
+      return 2
