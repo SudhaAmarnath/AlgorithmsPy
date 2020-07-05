@@ -5,3 +5,4 @@ def linear_search(list, key):
         if item == key:
             return i
     return -1
+print(linear_search([4,5,2,7,1,8],7))
