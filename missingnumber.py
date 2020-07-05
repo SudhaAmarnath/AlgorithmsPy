@@ -11,7 +11,7 @@ Output: 8
 class missingnumber:
     def missing(self,nums: int)->int:
         total = sum(nums)
-        n = len(nums)
-        formula = n*(n+1)//2
-        return formula - total
-print(missingnumber().missing([1,2,0,4]))
+        n = len(nums) #4
+        formula = n*(n+1)//2 #10
+        return formula - total #10-7
+print(missingnumber().missing([1,2,0,4])) #3
