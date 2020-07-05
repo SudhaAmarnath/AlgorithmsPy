@@ -19,7 +19,7 @@ A solution set is:
 
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        result = set()
+        result = set() #remove duplicates
         nums = sorted(nums)
 
         for i in range(len(nums)):
