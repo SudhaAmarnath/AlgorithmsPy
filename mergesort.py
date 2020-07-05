@@ -39,6 +39,10 @@ def mergesort(list1, list2):
         list3.extend(list2[b:])
     else:
         list3.extend(list1[a:])
+    #or
+    #list3+=list2[b:]
+    #list3+=list1[a:]
+
     return list3
 print(mergesort([2,5,6,7],[1,3,8,10]))
 
