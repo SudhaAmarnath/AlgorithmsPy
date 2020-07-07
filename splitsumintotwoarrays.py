@@ -17,4 +17,6 @@ def isItPossibleToSplitInTwoArrays(arr):
         left_sum += n
 
     return False
-print(isItPossibleToSplitInTwoArrays([1,2,3,4,5,5]))
+print(isItPossibleToSplitInTwoArrays([1,2,3,4,5,5])) #left array: [1, 2, 3, 4]
+                                                     #right array: [5, 5]
+                                                     #True
