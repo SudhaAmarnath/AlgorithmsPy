@@ -40,6 +40,30 @@ class Solution:
 
         return list(result)
 
+#finding 3sum = target
+def threeSum(nums, target):
+    result = set()  # remove duplicates
+    nums = sorted(nums)
+
+    for i in range(len(nums)):
+        l = i + 1
+        r = len(nums) - 1
+
+        while l < r:
+            v = nums[i] + nums[l] + nums[r]
+
+            if v == target:
+                result.add((nums[i], nums[l], nums[r]))
+                l += 1
+                r -= 1
+            elif v > target:
+                r -= 1
+            elif v < target:
+                l += 1
+
+    return result
+print(threeSum([1,4,5,7,3],8)) #{(1, 3, 4)}
+
 #using itertools combinations()
 
 import itertools
