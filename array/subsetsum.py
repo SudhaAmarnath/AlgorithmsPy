@@ -14,3 +14,4 @@ def subsetProb(arr, s):
             return [a,b]
         else:
             d[a] = a
+print(subsetProb([1, 2, 3],5)) #[3, 2]
