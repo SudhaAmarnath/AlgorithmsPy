@@ -22,3 +22,35 @@ class Solution:
                 if(coin <= value):                                      # check if this coin can be used make value i.
                     dp[value] = min(dp[value], 1 + dp[value - coin])    # 1 => current coin included, check the min coins required to make remaining value i.e  value - coin
         return -1 if(dp[amount] > amount) else dp[amount]
+
+#or
+class Solution:
+    def coinChange(self, coins: List[int], amount: int) -> int:
+
+        DP = [float('inf') for _ in range(0, amount + 1)]
+        DP[0] = 0  # there are zero ways to make change for 0 using 0 coins
+        for i in range(1, len(DP)):
+            for j in range(0, len(coins)):
+                if (i >= coins[j]):
+                    DP[i] = min(DP[i], DP[i - coins[j]] + 1)
+
+        if (DP[-1] == float('inf')):
+            return -1
+        return DP[-1]
+
+#or
+def dynamicCoinChange(T, L):
+    Opt = [0 for i in range(0, L + 1)]
+    sets = {i: [] for i in range(L + 1)}
+    n = len(T)
+    for i in range(1, L + 1):
+        smallest = float("inf")
+        for j in range(0, n):
+            if (T[j] <= i):
+                smallest = min(smallest, Opt[i - T[j]])
+                if smallest == Opt[i - T[j]]:
+                    sets[i] = [T[j]] + sets[i - T[j]]
+        Opt[i] = 1 + smallest
+    return Opt[L], sorted(sets[L])
+print(dynamicCoinChange([1,2,5],11)) #(3, [1, 5, 5])
+
