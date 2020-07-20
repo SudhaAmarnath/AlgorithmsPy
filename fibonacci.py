@@ -50,4 +50,14 @@ if __name__ == '__main__':
     n = int(input())
     print(list(map(cube, fibonacci(n))))
 
+#or
 
+def fib(n):
+    #cube  = lambda x: pow(x,3)
+    lst = [1,1]
+    for i in range(2,n):
+        lst.append(lst[i-2]+lst[i-1])
+    return lst
+
+print(fib(3)) #[1, 1, 2]
+print(list(map(lambda x: pow(x, 3),fib(5)))) #[1, 1, 8, 27, 125]
