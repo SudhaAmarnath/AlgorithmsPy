@@ -19,3 +19,21 @@ def findThreeLargestNumbers(array):
 	# return sorted( [x for i,x in enumerate(array)], reverse=True )[:3]
     lst = sorted( [x for i,x in enumerate(array)], reverse=True )[:3]
 	return sorted(lst)
+
+#or to remove duplicate
+def findThreeLargestNumbers(array):
+	n = list()
+    lst = sorted( [x for i,x in enumerate(array)], reverse=True )[:3]
+	for x in lst:
+		if x not in n:
+			n.append(x)
+	return sorted(n)
+
+#or using set
+def findThreeLargestNumbers(array):
+    n = set(array)
+    lst = sorted( [x for i,x in enumerate(array)], reverse=True )[:3]
+    for x in lst:
+        n.add(x)
+        return sorted(n)
+print(findThreeLargestNumbers([7, 7, 7, 7, 7, 7, 8, 7, 7, 7, 9])) #[7,8,9]
