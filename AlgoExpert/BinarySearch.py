@@ -1,3 +1,4 @@
+#O(log(n)) time | O(log(n)) space
 def binary_search(list, key):
     """
     Returns the position of key in the list if found, -1 otherwise.
