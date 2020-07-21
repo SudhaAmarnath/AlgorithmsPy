@@ -64,6 +64,7 @@ class Solution:
         d = {}
         for i in range(len(strs)):
             x = ''.join(sorted(strs[i]))
+            print(x)
             if x not in d:
                 d[x] = [strs[i]] #[aet]=[eat]
             else:
