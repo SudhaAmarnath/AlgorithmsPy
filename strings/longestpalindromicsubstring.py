@@ -21,7 +21,7 @@ One possible longest palindromic subsequence is "bb".
 class Solution:
     def longestPalindrome(self, s: str) -> str:
         count = 0
-        arr = ''
+        arr = []
         if len(s) == 1:
             return s
 
@@ -34,8 +34,9 @@ class Solution:
                     #continue
                 if str1 == str2 and len(str1) > count:
                     count = len(str1)
-                    arr += str1
+                    arr.append(str1)
         return count #5
+        return max(arr, key = len) #acbca
 
 #to print all the palindromes
 class Solution:
@@ -55,6 +56,22 @@ class Solution:
 Solution().longestPalindrome('acbcacb') #['a', 'acbca', 'c', 'cbc', 'b', 'bcacb', 'c', 'cac', 'a', 'c',
 
 '''
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        arr = []
+        if len(s) == 1:
+            return s
+
+        for i in range(len(s)):
+            for j in range(i, len(s)):
+
+                str1 = s[i:j + 1]
+                str2 = str1[::-1]
+                if str1 == str2:
+                    arr.append(str1)
+                k = [s for s in arr if len(s) == len(max(arr, key=len))]
+        return k
+print(Solution().longestPalindrome('acbcacb')) #['acbca', 'bcacb']
 
 #to get the len of LPS
 #recursion
