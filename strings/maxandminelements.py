@@ -1,0 +1,5 @@
+lst = ['a', 'acbca', 'c', 'cbc', 'b', 'bcacb', 'c', 'cac', 'a', 'c',]
+smallest = [s for s in lst if len(s) == len(min(lst, key=len))]
+largest = [s for s in lst if len(s) == len(max(lst, key=len))]
+print(smallest) #['a', 'c', 'b', 'c', 'a', 'c']
+print(largest)  #['acbca', 'bcacb']
