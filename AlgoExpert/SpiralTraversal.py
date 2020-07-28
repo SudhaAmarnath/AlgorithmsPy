@@ -36,3 +36,39 @@ def spiralTraverse(matrix):
 			moving_right = True
 
 	return path
+
+#solution 2
+# O(n) time | O(n) space
+def spiralTraverse(array):
+    # Write your code here.
+    result = []
+
+
+srow, erow = 0, len(array) - 1
+scol, ecol = 0, len(array[0]) - 1
+
+while srow <= erow and scol <= ecol:
+    # for outer perimeter
+    for col in range(scol, ecol + 1):
+        result.append(array[srow][col])
+
+    for row in range(srow + 1, erow + 1):
+        result.append(array[row][ecol])
+
+    for col in reversed(range(scol, ecol)):
+        if srow == erow:
+            break
+        result.append(array[erow][col])
+
+    for row in reversed(range(srow + 1, erow)):
+        if scol == ecol:
+            break
+        result.append(array[row][scol])
+
+    # for inner perimeter
+    srow += 1
+    erow -= 1
+    scol += 1
+    ecol += 1
+
+return result
