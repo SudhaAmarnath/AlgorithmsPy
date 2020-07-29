@@ -28,5 +28,5 @@ class substirngcount:
             else:
                 maxlen = max(maxlen, end-start+1)
             d[s[end]] = end
-        return maxlen
+        return str[start[0]:end[1]]
 print(substirngcount().subs('abcabcbb'))
