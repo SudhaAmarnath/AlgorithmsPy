@@ -1,4 +1,5 @@
 #longest substring without repeating chracters
+#https://medium.com/@dimko1/longest-substring-without-repeating-characters-997ded46e89d
 '''
 Example 1:
 
@@ -30,3 +31,22 @@ class substirngcount:
             d[s[end]] = end
         return str[start[0]:end[1]]
 print(substirngcount().subs('abcabcbb'))
+
+#time O(n) | space O(1)
+def lengthOfLongestSubstring(self, s):
+
+    if len(s) == 0: return 0
+
+    start = maxLength = 0
+
+    usedChars = {}
+
+    for i in range(len(s)):
+        if s[i] in usedChars and start <= usedChars[s[i]]:
+            start = usedChars[s[i]] + 1
+        else:
+            maxLength = max(maxLength, i - start + 1)
+        usedChars[s[i]] = i
+
+
+    return maxLength
