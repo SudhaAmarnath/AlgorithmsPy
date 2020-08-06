@@ -50,3 +50,34 @@ def lengthOfLongestSubstring(self, s):
 
 
     return maxLength
+
+
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        maxlen = 0
+        start = 0
+        lookup = {}
+        for i, char in enumerate(s):
+            if char in lookup and start <= lookup[char]:
+                start = lookup[char] + 1
+            else:
+                maxlen = max(maxlen, i - start + 1)
+
+            lookup[char] = i
+        return maxlen
+
+#or print the resultant string
+
+# O(n) time | O(min(n, a)) space #a for repeating char
+def longestSubstringWithoutDuplication(string):
+    # Write your code here.
+    lastseen = {}
+    longest = [0, 1]
+    startidx = 0
+    for i, char in enumerate(string):
+        if char in lastseen:
+            startidx = max(startidx, lastseen[char] + 1)
+        if longest[1] - longest[0] < i + 1 - startidx:  # to update duplicte, to compare longest
+            longest = [startidx, i + 1]
+        lastseen[char] = i
+    return string[longest[0]:longest[1]]
