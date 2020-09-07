@@ -1,0 +1,22 @@
+https://www.algoexpert.io/questions/Validate%20Subsequence
+
+import java.util.*;
+
+class Program {
+  public static boolean isValidSubsequence(List<Integer> array, List<Integer> sequence) {
+    // Write your code here.
+		
+		int mainstr = 0;
+		int substr = 0;
+		while (mainstr < array.size() && substr < sequence.size()){
+			if (array.get(mainstr).equals(sequence.get(substr))){
+
+				substr += 1;
+				}
+
+			mainstr += 1;
+			}
+		return substr == sequence.size();
+  
+  }
+}
