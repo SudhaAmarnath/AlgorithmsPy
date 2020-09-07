@@ -1,0 +1,22 @@
+#https://www.algoexpert.io/questions/Two%20Number%20Sum
+
+import java.util.*;
+
+class Program {
+	public static int[] twoNumberSum(int[] array, int targetSum){
+		for (int i = 0; i < array.length -1; i++){
+			int first = array[i];
+			for (int j = i+1; j < array.length; j++){
+				int second = array[j];
+				if (first + second == targetSum){
+					return new int[] {first, second};
+		
+					
+				}
+			}
+			
+		}
+		return new int[0];	
+	}
+	
+}
