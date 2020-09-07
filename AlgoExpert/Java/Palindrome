@@ -1,0 +1,20 @@
+#https://www.algoexpert.io/questions/Palindrome%20Check
+
+import java.util.*;
+
+class Program {
+  public static boolean isPalindrome(String str) {
+    // Write your code here.
+		int leftidx = 0;
+		int rightidx = str.length() - 1;
+		while (leftidx < rightidx) {
+			if (str.charAt(leftidx) != str.charAt(rightidx)){
+				return false;
+			}
+			leftidx++;
+			rightidx--;
+			
+		}
+    return true;
+  }
+}
