@@ -1,14 +1,14 @@
-##1. The Big Picture
-##2. Optimization
-##3. Data Preprocessing
-##4. Sampling & Splitting
-##5. Supervised Learning
-##6. Unsupervised Learning
-##7. Model Evaluation
-##8. Ensemble Learning
-##9. Business Applications
+## 1. The Big Picture
+## 2. Optimization
+## 3. Data Preprocessing
+## 4. Sampling & Splitting
+## 5. Supervised Learning
+## 6. Unsupervised Learning
+## 7. Model Evaluation
+## 8. Ensemble Learning
+## 9. Business Applications
 
-###The Big Picture
+### The Big Picture
 
 1. The Big Picture
 Essential ML theory, such as the Bias-Variance tradeoff.
