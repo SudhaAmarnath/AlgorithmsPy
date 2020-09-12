@@ -8,6 +8,7 @@
 ## 8. Ensemble Learning
 ## 9. Business Applications
 
+
 ### The Big Picture
 
 1. The Big Picture
@@ -56,7 +57,7 @@ That means GD is preferable for small datasets while SGD is preferable for large
 
 In practice, however, SGD is used for most applications because it minimizes the error function well enough while being much faster and more memory efficient for large datasets.
 
-###Data Preprocessing
+### Data Preprocessing
 
 3. Data Preprocessing
 Dealing with missing data, skewed distributions, outliers, etc.
@@ -79,7 +80,7 @@ Performing PCA, ICA, or other forms of algorithmic dimensionality reduction.
 Combining features with feature engineering.
 Learn more about feature engineering best practices
 
-###Sampling & Splitting
+### Sampling & Splitting
 
 4. Sampling & Splitting
 How to split your datasets to tune parameters and avoid overfitting.
@@ -118,7 +119,7 @@ If training set is small, high bias / low variance models (e.g. Naive Bayes) ten
 
 If training set is large, low bias / high variance models (e.g. Logistic Regression) tend to perform better because they can reflect more complex relationships.
 
-###Unsupervised Learning
+### Unsupervised Learning
 
 6. Unsupervised Learning
 Learning from unlabeled data using factor and cluster analysis models.
@@ -139,7 +140,7 @@ These new features, or principal components, sequentially maximize the variance 
 As a result, PCA is useful for dimensionality reduction because you can set an arbitrary variance cutoff.
 
 
-###Model Evaluation
+### Model Evaluation
 
 7. Model Evaluation
 Making decisions based on various performance metrics.
@@ -159,7 +160,7 @@ AUROC is robust to class imbalance, unlike raw accuracy.
 For example, if you want to detect a type of cancer that's prevalent in only 1% of the population, you can build a model that achieves 99% accuracy by simply classifying everyone has cancer-free.
 
 
-###Ensemble Learning
+### Ensemble Learning
 
 8. Ensemble Learning
 Combining multiple models for better performance.
@@ -179,7 +180,7 @@ Then, each subset is used to train a model, and the final predictions are made t
 Bagging is performed in parallel.
 
 
-###Business Applications
+### Business Applications
 
 9. Business Applications
 How machine learning can help different types of businesses.
