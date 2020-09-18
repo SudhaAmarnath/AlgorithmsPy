@@ -21,17 +21,3 @@ class Solution:
             minimum = min(minimum*i,i)
             best = max(best,maximum)
         return best
-    
-    
-#Solution 2
-
-def adjacentElementsProduct(array, multiplier=1):
-    sum = 0
-    for element in array:
-        if type(element) is list:
-            sum += productSum(element, multiplier + 1)
-        else:
-            sum += element
-    return sum * multiplier
-
-print(adjacentElementsProduct([3, 6, -2, -5, 7, 3])) #21
