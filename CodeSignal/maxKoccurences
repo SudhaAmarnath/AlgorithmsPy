@@ -11,10 +11,10 @@ words[2] = "bca" is a 0-occurrence of sequence, because there is no substring "b
 '''
 #number of occurances of the given substring in the string
 
-test_str = "gfghsisbjknlmkesbestgfgsdcngfgcsdjnisdjnlbestdjsklgfgcdsbestbnjdsgfgdbhisbhsbestdkgfgb"
-test_list = ['gfg', 'is', 'best']
+test_str = "aabaacacababaaacacbaab"
+test_list = ['aac', 'aa', 'ca', 'baab']
 x = []
 for i in test_list:
-    if i in test_str:
-        x.append(test_str.count(i))
-print(x)  #[6, 3, 4]
+if i in test_str:
+x.append(test_str.count(i))
+print(x) #[2, 4, 3, 1]
