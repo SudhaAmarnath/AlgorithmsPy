@@ -1,0 +1,17 @@
+#Finding equal average value, return in the list
+
+def hashMap(queryType, query):
+    d = {}
+    key, value = 0, 0
+    total_sum = 0
+    for q, p in zip(queryType, query):
+        if q == "insert":
+            d[p[0] - key] = p[1] - value
+        elif q == "addToValue":
+            value += p[0]
+        elif q == "addToKey":
+            key += p[0]
+        else:
+            matchval = d[p[0] - key] + value
+            total += matchval
+    return total
