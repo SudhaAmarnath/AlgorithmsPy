@@ -1,0 +1,20 @@
+'''
+
+For sequence = "ababcbabc" and words = ["ab", "babc", "bca"], the output should be maxKOccurrences(sequence, words) = [2, 2, 0].
+
+words[0] = "ab" is a 2-occurrence of sequence, because sequence[0..4] = "abab";
+words[0] = "ab" is not a 3-occurence of sequence, because there is no substring "ababab" in sequence;
+words[1] = "babc" is a 2-occurrence of sequence, because sequence[1..8] = "babcbabc";
+words[1] = "babc" is not a 3-occurence of sequence, because there is no substring "babcbabcbabc" in sequence;
+words[2] = "bca" is a 0-occurrence of sequence, because there is no substring "bca" in sequence.
+
+'''
+#number of occurances of the given substring in the string
+
+test_str = "gfghsisbjknlmkesbestgfgsdcngfgcsdjnisdjnlbestdjsklgfgcdsbestbnjdsgfgdbhisbhsbestdkgfgb"
+test_list = ['gfg', 'is', 'best']
+x = []
+for i in test_list:
+    if i in test_str:
+        x.append(test_str.count(i))
+print(x)  #[6, 3, 4]
