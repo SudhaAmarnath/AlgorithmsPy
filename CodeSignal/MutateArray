@@ -1,0 +1,16 @@
+#
+
+def mutate(n, a):
+  b = []
+  for i in range(n):
+    if i == 0:
+      prev = 0
+    else:
+      prev = a[i - 1]
+    if i == n-1:
+      nxt = 0
+    else:
+      nxt = a[i + 1]
+    b.append(prev + a[i] + nxt)
+  return b
+      
