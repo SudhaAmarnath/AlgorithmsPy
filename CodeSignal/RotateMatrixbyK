@@ -1,0 +1,32 @@
+# rotate diagonally matrix by k times
+# Time complexity :O(N^2) | Space complexity : O(1)
+
+Solution 1
+class Solution:
+    def rotate(self, x: List[List[int]]) -> None:
+       
+        #finding the transpose of the matrix
+        for i in range(len(x)):
+            for j in range(i,len(x)):
+                x[i][j],x[j][i] = x[j][i],x[i][j]
+
+
+        #finding the reversal of the matrix
+        for i in range(len(x)//2):
+            for j in range(len(x)):
+                x[j][i],x[j][len(x)-1-i] = x[j][len(x)-1-i],x[j][i]
+        return x
+ 
+ Solution 2
+ class Solution:
+    def rotate(self, matrix):
+
+        n = len(matrix[0])        
+        # transpose matrix
+        for i in range(n):
+            for j in range(i, n):
+                matrix[j][i], matrix[i][j] = matrix[i][j], matrix[j][i] 
+        
+        # reverse each row
+        for i in range(n):
+            matrix[i].reverse()
