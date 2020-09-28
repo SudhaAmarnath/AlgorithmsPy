@@ -14,3 +14,23 @@ class Solution:
         
         
 #to find max arithmatic progression given value d
+
+def maxlenAP(a, n, d):
+
+    m = dict()
+    maxt = 1
+
+    for i in range(n):
+        if (a[i] - i * d) in m:
+            m[a[i] - i * d] += 1
+        else:
+            m[a[i] - i * d] = 1
+
+    for it in m:
+        if m[it] > maxt:
+            # calculating the length of longest AP.
+            maxt = m[it]
+
+    return maxt
+
+print(maxlenAP([1, 4, 2, 5, 20, 11, 56, 100, 20, 23], 10, 3 )) #5
