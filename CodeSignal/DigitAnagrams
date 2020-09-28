@@ -1,0 +1,28 @@
+'''
+For a = [25, 35, 872, 228, 53, 278, 872], the output should be digitAnagrams(a) = 4.
+
+There are 4 pairs of digit anagrams:
+
+    a[1] = 35 and a[4] = 53 (i = 1 and j = 4),
+    a[2] = 872 and a[5] = 278 (i = 2 and j = 5),
+    a[2] = 872 and a[6] = 872 (i = 2 and j = 6),
+    a[5] = 278 and a[6] = 872 (i = 5 and j = 6).
+'''
+def digit_anagrams(nums):
+    d = {}
+    res = 0
+
+    for n in nums:
+        x = [0] * 10
+        for char in str(n):
+            x[int(char)] = 1
+
+        key = tuple(x)
+        if key in d:
+            res += d[key]
+            d[key] += 1
+        else:
+            d[key] = 1
+
+    return res
+print(digit_anagrams([25, 35, 872, 228, 53, 278, 872])) #4
