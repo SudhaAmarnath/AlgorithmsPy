@@ -30,3 +30,29 @@ class Solution:
         # reverse each row
         for i in range(n):
             matrix[i].reverse()
+            
+            
+            
+# For q=1, use 1 transpose then reverse, q=2, use 1 transpose and for q=3, use 1 transpose then reverse and then 2 transpose.
+
+def rotateMatrix(a):
+  N = len(a)
+  matrix = [ list(reversed([row[i] for row in a])) for i in range(N)]
+  return matrix
+
+def diagonalMain(a):
+  matrix = [[row[i] for row in a] for i in range(len(a))]
+  return matrix
+
+def diagonalSecond(a):
+  return list(reversed(rotateMatrix(a)))
+
+def mutateMatrix(matrix, queries):
+  for q in queries:
+    if q == 0:
+      matrix = rotateMatrix(matrix)
+    elif q == 2:
+      matrix = diagonalMain(matrix)
+    elif q == 1:
+      matrix = diagonalSecond(matrix)
+  return matrix	
