@@ -1,0 +1,23 @@
+#difference more than d
+
+'''
+Input : A = [7, 6, 9] B = [13, 1, 4] and d = 3
+Output : 1
+Explanation : For A[i] = 7, Difference | A[i] - B[j] | is greater than d for B[j] = 13, 1 but equal to 3 for B[j] = 4. Hence, 7 does not qualify.
+Similary for 6, the differences are [7, 5, 2]. since 2 is less equal to 3 hence this element does not qualify as well.
+Whereas for 9, the differences are [4, 8, 5]. Here difference with each element of B is greater than d. So we have found 1 such element. So the output would be 1.
+'''
+
+A = [7, 6, 9]
+B = [13, 1, 4]
+d = 3
+#o 1 such occurance
+cnt = 0
+for i in A:
+    f = 0
+    for j in B:
+        if abs(i-j) <= d:
+            f = 1
+            break
+    if f == 0: cnt += 1
+print(cnt)
