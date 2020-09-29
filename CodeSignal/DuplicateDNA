@@ -1,0 +1,43 @@
+#Duplicate DNA
+
+'''
+Given a String reference and a list of strings candidates, compute the number of candidate sequences that are similar to the reference sequence.
+
+Two strings are similar if any rotation of the strings are within 3 substitutions of each other.
+
+Examples:
+
+GAAAAAA and GAAATTT are similar because you could replace the last 3 A's with Ts to get from the first to the second
+GAAAAAA and AAATTTG are similar because you could replace the last 3 A's with Ts and rotate one character to the left to get from the first string to the second string
+GAAAAAA and GAATTTT are not similar because you need to make at least 4 substitutions to get from the first string to the second string.
+Example Input:
+reference: GAAAAAA
+candidates: [GAAATTT, AAATTTG, GAATTTT]
+
+Output:
+2
+
+'''
+def similar_strings(reference, candidates):
+  similar = 0
+  for candidate in candidates:
+   # check all possible rotations of a candidate, break if 
+   # one of them is similar
+    for offset in range(len(reference)):
+      diff = get_difference(reference, candidate, offset)
+      if diff <= 3:
+        similar += 1
+        break
+  return similar
+
+# assumes strings are equal length
+def get_difference(str1, str2, offset):
+  diff = 0
+  for index in range(len(str1)):
+    # wrap around the array so you don't go out of bounds
+    index_rotated = (index + offset) % len(str1)
+    if str1[index] != str2[index_rotated]:
+      diff += 1
+  return diff
+
+print(similar_strings("GAAAAAA", ["GAAATTT", "AAATTTG", "GAATTTT"])) #2
