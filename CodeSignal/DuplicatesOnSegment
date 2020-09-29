@@ -1,0 +1,30 @@
+#Duplicates on segment
+
+'''
+Example:
+• For arr = [0, 0, 0], the output should be duplicatesOnSegment(arr) = 3.
+
+There are 3 subarrays that satisfy the criteria of containing only duplicate elements:
+• arr[0..1] = [0, 0]
+• arr[1..2] = [0, 0]
+• arr[0..2] = [0, 0, 0]
+
+• For arr = [1, 2, 1, 2, 3], the output should be duplicatesOnSegment(arr) = 1.
+
+There is only 1 applicable subarray arr[0..3] = [1, 2, 1, 2].
+'''
+
+from collections import defaultdict
+
+def duplicatesOnSegment(A):
+    res = 0
+    for i in range(0,len(A)):
+        counter = 0
+        d = defaultdict (int)
+        for j in range (i, len(A)):
+            d[A[j]] += 1
+            if d[A[j]] == 2:
+                counter += 1
+            if counter != 0 and counter == len(d):
+                result += 1
+    return res
