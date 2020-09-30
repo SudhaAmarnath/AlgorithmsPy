@@ -1,0 +1,58 @@
+# rotate diagonally matrix by k times
+# Time complexity :O(N^2) | Space complexity : O(1)
+
+Solution 1
+class Solution:
+    def rotate(self, x: List[List[int]]) -> None:
+       
+        #finding the transpose of the matrix
+        for i in range(len(x)):
+            for j in range(i,len(x)):
+                x[i][j],x[j][i] = x[j][i],x[i][j]
+
+
+        #finding the reversal of the matrix
+        for i in range(len(x)//2):
+            for j in range(len(x)):
+                x[j][i],x[j][len(x)-1-i] = x[j][len(x)-1-i],x[j][i]
+        return x
+ 
+ Solution 2
+ class Solution:
+    def rotate(self, matrix):
+
+        n = len(matrix[0])        
+        # transpose matrix
+        for i in range(n):
+            for j in range(i, n):
+                matrix[j][i], matrix[i][j] = matrix[i][j], matrix[j][i] 
+        
+        # reverse each row
+        for i in range(n):
+            matrix[i].reverse()
+            
+            
+            
+# For q=1, use 1 transpose then reverse, q=2, use 1 transpose and for q=3, use 1 transpose then reverse and then 2 transpose.
+
+def rotateMatrix(a):
+  N = len(a)
+  matrix = [ list(reversed([row[i] for row in a])) for i in range(N)]
+  return matrix
+
+def diagonalMain(a):
+  matrix = [[row[i] for row in a] for i in range(len(a))]
+  return matrix
+
+def diagonalSecond(a):
+  return list(reversed(rotateMatrix(a)))
+
+def mutateMatrix(matrix, queries):
+  for q in queries:
+    if q == 0:
+      matrix = rotateMatrix(matrix)
+    elif q == 2:
+      matrix = diagonalMain(matrix)
+    elif q == 1:
+      matrix = diagonalSecond(matrix)
+  return matrix	
