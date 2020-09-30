@@ -1,0 +1,433 @@
+# rotate diagonally matrix by k times
+# Time complexity :O(N^2) | Space complexity : O(1)
+
+Solution 1
+class Solution:
+    def rotate(self, x: List[List[int]]) -> None:
+       
+        #finding the transpose of the matrix
+        for i in range(len(x)):
+            for j in range(i,len(x)):
+                x[i][j],x[j][i] = x[j][i],x[i][j]
+
+
+        #finding the reversal of the matrix
+        for i in range(len(x)//2):
+            for j in range(len(x)):
+                x[j][i],x[j][len(x)-1-i] = x[j][len(x)-1-i],x[j][i]
+        return x
+ 
+ Solution 2
+ class Solution:
+    def rotate(self, matrix):
+
+        n = len(matrix[0])        
+        # transpose matrix
+        for i in range(n):
+            for j in range(i, n):
+                matrix[j][i], matrix[i][j] = matrix[i][j], matrix[j][i] 
+        
+        # reverse each row
+        for i in range(n):
+            matrix[i].reverse()
+			
+
+
+# For q=1, use 1 transpose then reverse, q=2, use 1 transpose and for q=3, use 1 transpose then reverse and then 2 transpose.
+
+def rotateMatrix(a):
+  N = len(a)
+  matrix = [ list(reversed([row[i] for row in a])) for i in range(N)]
+  return matrix
+
+def diagonalMain(a):
+  matrix = [[row[i] for row in a] for i in range(len(a))]
+  return matrix
+
+def diagonalSecond(a):
+  return list(reversed(rotateMatrix(a)))
+
+def mutateMatrix(matrix, queries):
+  for q in queries:
+    if q == 0:
+      matrix = rotateMatrix(matrix)
+    elif q == 2:
+      matrix = diagonalMain(matrix)
+    elif q == 1:
+      matrix = diagonalSecond(matrix)
+  return matrix	
+		
+			
+---------------------------------------------------------------------------------------
+
+#number of occurances of the given substring in the string
+
+test_str = "gfghsisbjknlmkesbestgfgsdcngfgcsdjnisdjnlbestdjsklgfgcdsbestbnjdsgfgdbhisbhsbestdkgfgb"
+test_list = ['gfg', 'is', 'best']
+x = []
+for i in test_list:
+    if i in test_str:
+        x.append(test_str.count(i))
+print(x)  #[6, 3, 4]
+
+
+def maxKOccurences(sequence, words):
+  sol = []
+  for word in words:
+    r = 0
+    N = len(word)
+    m = 0
+    i = 0
+    while i < len(sequence) - N + 1:
+      if sequence[i:i+N] == word:
+        m += 1
+        r = max(r, m)
+        i += N
+      else:
+        m = 0
+        i += 1
+    sol.append(r)
+  return sol
+
+-------------------------------------------------------------------------------------------
+
+# max arithmatic length
+
+class Solution:
+    def longestArithSeqLength(self, A: List[int]) -> int:
+
+        d = {}
+        for i in range(len(A)):
+            for j in range(i + 1, len(A)):
+                d[j, A[j] - A[i]] = d.get((i, A[j] - A[i]), 1) + 1
+        return max(d.values())
+
+		
+		
+		
+# for value d
+
+def maxlenAP(a, n, d):
+
+    m = dict()
+    maxt = 1
+
+    for i in range(n):
+        if (a[i] - i * d) in m:
+            m[a[i] - i * d] += 1
+        else:
+            m[a[i] - i * d] = 1
+
+    for it in m:
+        if m[it] > maxt:
+            # calculating the length of longest AP.
+            maxt = m[it]
+
+    return maxt
+
+print(maxlenAP([1, 4, 2, 5, 20, 11, 56, 100, 20, 23], 10, 3 )) #5
+
+#when 2 arrays are given
+
+import bisect
+import copy
+
+
+def longestArithSeqLength(A, B):
+
+    dic = {}
+    dic2 = {}
+    originalA = len(A)
+    ogA = copy.deepcopy(A)
+    for b in B:
+        bisect.insort(A, b)
+
+    for i in range(len(A)):
+        for j in range(len(A[:i])):
+
+            diff = A[i] - A[j]
+
+            addCount = 1 if A[i] in ogA else 0
+
+            if (j, diff) in dic:
+                dic[i, diff] = dic[j, diff] + 1
+                dic2[i, diff] = dic2[j, diff] + addCount
+
+            else:
+                addCount += 1 if A[j] in ogA else 0
+                dic[i, diff] = 2
+                dic2[i, diff] = addCount
+
+    result = 0
+    for key, value in dic.items():
+        if dic2[key] == originalA:
+            result = max(result, dic[key])
+
+    return (-1 if result < originalA else result)
+
+
+a = [0, 4, 8, 16]
+b = [0, 2, 6, 12, 14, 20]
+print(longestArithSeqLength(a, b)) #6
+
+------------------------------------------------------------------------------------------------
+
+'''
+For a = [25, 35, 872, 228, 53, 278, 872], the output should be digitAnagrams(a) = 4.
+
+There are 4 pairs of digit anagrams:
+
+    a[1] = 35 and a[4] = 53 (i = 1 and j = 4),
+    a[2] = 872 and a[5] = 278 (i = 2 and j = 5),
+    a[2] = 872 and a[6] = 872 (i = 2 and j = 6),
+    a[5] = 278 and a[6] = 872 (i = 5 and j = 6).
+'''
+def digit_anagrams(nums):
+    d = {}
+    res = 0
+
+    for n in nums:
+        x = [0] * 10
+        for char in str(n):
+            x[int(char)] = 1
+
+        key = tuple(x)
+        if key in d:
+            res += d[key]
+            d[key] += 1
+        else:
+            d[key] = 1
+
+    return res
+print(digit_anagrams([25, 35, 872, 228, 53, 278, 872])) #4
+
+-------------------------------------------------------------------------------------------------
+
+#count arithmatic means
+
+def countArithmeticMeans(a):
+  a = [0] + a + [0]
+  c = 0
+  for i in range(1, len(a) - 1):
+    if a[i] == (a[i - 1] + a[i + 1])/2:
+      c+=1
+  return c
+  
+----------------------------------------------------------------------------------------------------
+
+# good tuples
+# A 'good tuple' is defined as consecutive triplets having exactly 2 duplicate elements.
+For eg.
+nums = [4,4,6,1,2,2,2,3]
+Here good tuples are: [4,4,6], [1,2,2], [2,2,3] becaue here in nums[i-1], nums[i], nums[i+1] eaxactly 2 nubers are equal, however [2,2,2] isn't a good tuple because nums[i-1]==num[i]==nums[i+1].
+Count of good tuples is 3.
+
+Another example:
+nums = {4,6,4,1,3,4}
+Here there is only one good tuple: [4,6,4]. Count of good tuples is 1.
+
+
+#Solution 1
+
+
+def goodTuples(nums):
+	count  = 0
+	if len(nums) < 3:
+		return 0
+	for i in range(2, len(nums)):
+		first =nums[i-2]
+		second =nums[i-1]
+		third =nums[i]
+		if first == second and first == third:
+			continue
+		elif first in (second,third) or second == third:
+			count += 1
+	return count
+
+#Solution 2
+
+def goodTuples(nums):
+    j = cnt = 0 
+    for i in range(len(nums)):
+        if i - j + 1 == 3:
+            if len(set(nums[j : i+1])) == 2:
+                cnt += 1
+            j += 1
+    return cnt
+
+	
+------------------------------------------------------------------------------------
+
+
+#difference more than d
+
+Input : A = [7, 6, 9] B = [13, 1, 4] and d = 3
+Output : 1
+Explanation : For A[i] = 7, Difference | A[i] - B[j] | is greater than d for B[j] = 13, 1 but equal to 3 for B[j] = 4. Hence, 7 does not qualify.
+Similary for 6, the differences are [7, 5, 2]. since 2 is less equal to 3 hence this element does not qualify as well.
+Whereas for 9, the differences are [4, 8, 5]. Here difference with each element of B is greater than d. So we have found 1 such element. So the output would be 1.
+
+A = [7, 6, 9]
+B = [13, 1, 4]
+d = 3
+#o 1 such occurance
+cnt = 0
+for i in A:
+    f = 0
+    for j in B:
+        if abs(i-j) <= d:
+            f = 1
+            break
+    if f == 0: cnt += 1
+print(cnt)
+
+----------------------------------------------------------------------------------------
+#Shuffle the pieces
+
+For arr = [1, 2, 5, 3] and pieces = [[5], [1, 2], [3]], the output should be shuffleThePieces(arr, pieces) = true.
+
+The arrays of pieces can be arranged in the order [1, 2], [5], and [3], which would be equal to arr = [1, 2, 5, 3] when concatenated.
+
+For arr = [1, 2, 5, 3, 6] and pieces = [[1, 2], [5], [6, 3]], the output should be shuffleThePieces(arr, pieces) = false.
+
+def test(arr, pieces):
+    d = {}
+    for k, v in enumerate(arr):
+        d[v] = k
+
+    for piece in pieces:
+        if len(piece) > 1:
+            for p in range(0, len(piece) - 1):
+                if d[piece[p]] + 1 != d[
+                    piece[p + 1]]:  # eg. piece = [6,3] --> d[6] = 4, d[3] = 3, d[6] + 1 != d[3] --> return False
+                    return False
+
+    return True
+
+print(test([1, 2, 5, 3],[[5], [1, 2], [3]]))#True
+print(test([1, 2, 5, 3, 6],[[1, 2], [5], [6, 3]]))#False
+
+
+-------------------------------------------------------------------------------------------------
+# is submatrix full
+
+'''
+You are given numbers, a 3 × n matrix which contains only digits from 1 to 9. Consider a sliding window of size 3 × 3, which is sliding from left to right through the matrix numbers. The sliding window has n - 2 positions when sliding through the initial matrix.
+
+Your task is to find whether or not each sliding window position contains all the numbers from 1 to 9 (inclusive). Return an array of length n - 2, where the ith element is true if the ith state of the sliding window contains all the numbers from 1 to 9, and false otherwise.
+
+Example
+
+numbers = [[1, 2, 3, 2, 5, 7],
+           [4, 5, 6, 1, 7, 6],
+           [7, 8, 9, 4, 8, 3]]
+
+the output should be isSubmatrixFull(numbers) = [true, false, true, false].
+Let's consider all sliding window states:
+
+    The 1st state contains all digits from 1 to 9.
+    The 2nd state doesn't contain digit 7.
+    The 3rd state contains all digits from 1 to 9.
+    The 4th state doesn't contain digit 9.
+    Summary, there are four states of the sliding window, and the resulted array is [true, false, true, false].
+'''
+
+
+def getCol(mat, col):
+    return [mat[i][col] for i in range(3)]
+
+def isSubMatrixFull(mat):
+    n = len(mat[0])
+    ans = [False]*(n-2)
+    kernel = getCol(mat, 0) + getCol(mat, 1) + getCol(mat, 2) # O(1)
+    for i in range(n - 2): # O(n)
+        if len(set(kernel)) == 9: # O(1)
+            ans[i] = True # O(1)
+        if i < n - 3: # O(1)
+            kernel = kernel[3:] + getCol(mat, i + 3) # O(1)
+    return ans
+	
+----------------------------------------------------------------------------------------------------
+#Duplicate DNA
+
+'''
+Given a String reference and a list of strings candidates, compute the number of candidate sequences that are similar to the reference sequence.
+
+Two strings are similar if any rotation of the strings are within 3 substitutions of each other.
+
+Examples:
+
+GAAAAAA and GAAATTT are similar because you could replace the last 3 A's with Ts to get from the first to the second
+GAAAAAA and AAATTTG are similar because you could replace the last 3 A's with Ts and rotate one character to the left to get from the first string to the second string
+GAAAAAA and GAATTTT are not similar because you need to make at least 4 substitutions to get from the first string to the second string.
+Example Input:
+reference: GAAAAAA
+candidates: [GAAATTT, AAATTTG, GAATTTT]
+
+Output:
+2
+
+'''
+def similar_strings(reference, candidates):
+  similar = 0
+  for candidate in candidates:
+   # check all possible rotations of a candidate, break if 
+   # one of them is similar
+    for offset in range(len(reference)):
+      diff = get_difference(reference, candidate, offset)
+      if diff <= 3:
+        similar += 1
+        break
+  return similar
+
+# assumes strings are equal length
+def get_difference(str1, str2, offset):
+  diff = 0
+  for index in range(len(str1)):
+    # wrap around the array so you don't go out of bounds
+    index_rotated = (index + offset) % len(str1)
+    if str1[index] != str2[index_rotated]:
+      diff += 1
+  return diff
+
+print(similar_strings("GAAAAAA", ["GAAATTT", "AAATTTG", "GAATTTT"])) #2
+
+
+--------------------------------------------------------------------------------------
+
+#Duplicates on segment
+
+'''
+Example:
+• For arr = [0, 0, 0], the output should be duplicatesOnSegment(arr) = 3.
+
+There are 3 subarrays that satisfy the criteria of containing only duplicate elements:
+• arr[0..1] = [0, 0]
+• arr[1..2] = [0, 0]
+• arr[0..2] = [0, 0, 0]
+
+• For arr = [1, 2, 1, 2, 3], the output should be duplicatesOnSegment(arr) = 1.
+
+There is only 1 applicable subarray arr[0..3] = [1, 2, 1, 2].
+'''
+
+from collections import defaultdict
+
+def duplicatesOnSegment(A):
+    res = 0
+    for i in range(0,len(A)):
+        counter = 0
+        d = defaultdict (int)
+        for j in range (i, len(A)):
+            d[A[j]] += 1
+            if d[A[j]] == 2:
+                counter += 1
+            if counter != 0 and counter == len(d):
+                result += 1
+    return res
+
+
+
+
+
+
