@@ -1,0 +1,14 @@
+'''
+For text = "Hello, this is CodeSignal!" and letters = ['e', 'i', 'h', 'l', 'o', 's'] , the output should be brokeKeyboard(text, letters) = 2
+'''
+
+def brokeKeyboard(text, letters):
+  cnt = 0
+  text = text.lower().split(' ')
+  for w in text:
+    for c in w:
+      if c.isalpha() and c not in letters:
+        cnt += 1
+        break
+  return cnt
+  print(brokeKeyboard("Hello, this is CodeSignal!",['e', 'i', 'h', 'l', 'o', 's']))#2
