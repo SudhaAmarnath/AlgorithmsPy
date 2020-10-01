@@ -1,0 +1,9 @@
+'''
+For a = [20, 11, 10, 10070, 7], output = 3, since numbers in the list of odd occurance of zeros are 3
+'''
+def OddOuccuranceofZeros(a):
+  for i in a:
+    s = str(i)
+    if s.count('0') % 2 == 1:
+      cnt += 1
+  return cnt
