@@ -1,0 +1,39 @@
+#https://www.algoexpert.io/questions/Min%20Height%20BST
+
+# time O(nlog(n)) | space O(n) 
+def minHeightBst(array):
+    return MinHeightBST(array, None, 0, len(array) - 1)
+
+def MinHeightBST(array, bst, start, end):
+	if end < start:
+		return
+	mid = (start + end)//2
+	add = array[mid]
+	if bst is None:
+		bst = BST(add)
+	else:
+		bst.insert(add)
+	
+	MinHeightBST(array, bst, start, mid - 1)
+	MinHeightBST(array, bst, mid + 1, end)
+	return bst
+		
+
+
+class BST:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+    def insert(self, value):
+        if value < self.value:
+            if self.left is None:
+                self.left = BST(value)
+            else:
+                self.left.insert(value)
+        else:
+            if self.right is None:
+                self.right = BST(value)
+            else:
+                self.right.insert(value)
