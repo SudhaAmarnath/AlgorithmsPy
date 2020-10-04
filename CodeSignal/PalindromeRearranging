@@ -1,0 +1,10 @@
+#https://app.codesignal.com/arcade/intro/level-4/Xfeo7r9SBSpo3Wico/solutions
+'''
+For inputString = "aabb", the output should be
+palindromeRearranging(inputString) = true.
+
+We can rearrange "aabb" to make "abba", which is a palindrome.
+'''
+
+def palindromeRearranging(inputString):
+    return sum(map(lambda x: inputString.count(x) % 2, set(inputString))) <= 1
