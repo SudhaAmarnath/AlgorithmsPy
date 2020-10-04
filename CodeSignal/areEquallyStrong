@@ -1,0 +1,6 @@
+#https://app.codesignal.com/arcade/intro/level-5/g6dc9KJyxmFjB98dL/solutions
+
+def areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight):
+    same_equal = yourLeft == friendsLeft and yourRight == friendsRight
+    different_equal = yourLeft == friendsRight and yourRight == friendsLeft
+    return same_equal or different_equal
